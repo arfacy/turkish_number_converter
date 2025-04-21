@@ -37,10 +37,10 @@ def text_to_number(text):
         kelimeler = match.group(0).split()
         return parse_number(kelimeler)
 
-    pattern = r"(sıfır|bir|iki|üç|dört|beş|altı|yedi|sekiz|dokuz|on|yirmi|otuz|kırk|elli|altmış|yetmiş|seksen|doksan|yüz|bin)(\\s+(bir|iki|üç|dört|beş|altı|yedi|sekiz|dokuz))?"
+    # ✔️ Tüm ardışık sayı kelimelerini eşle
+    pattern = r"\b(?:sıfır|bir|iki|üç|dört|beş|altı|yedi|sekiz|dokuz|on|yirmi|otuz|kırk|elli|altmış|yetmiş|seksen|doksan|yüz|bin)(?:\s+(?:sıfır|bir|iki|üç|dört|beş|altı|yedi|sekiz|dokuz|on|yirmi|otuz|kırk|elli|altmış|yetmiş|seksen|doksan|yüz|bin))*\b"
 
     return re.sub(pattern, replace_number_words, text)
-
 
 
 
